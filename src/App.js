@@ -8,23 +8,18 @@ function App() {
 }
 
 function EventDemo() {
-  
-  let [list, setList] = useState(["todo1"]);
-
-  
+  let [list, setList] = useState([" "]);
   let addNewItem = () => {
     let inputTag = document.querySelector("#inputid");
     let inputValue = inputTag.value;
     let newList = [inputValue, ...list];
     setList(newList);
   };
-
   return (
-    <div>
-      <h1>TODO </h1>
-
-      <input type="text" placeholder="Enter Todo" id="inputid" />
-      <input type="button" value="Add new Item" onClick={addNewItem} />
+    <div >
+      <h1 className="bg-success">TODO</h1>
+      <input type="text" placeholder="Type here...." id="inputid" />
+      <input type="button" value="Add" onClick={addNewItem} />
 
       <hr />
       {list.map((item) => (
