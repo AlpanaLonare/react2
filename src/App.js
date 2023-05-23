@@ -7,13 +7,11 @@ function App() {
   );
 }
 function EventDemo() {
-  
+
   
   let [displayImage, setDisplayImage] = useState(
     "https://picsum.photos/id/237/300/300"
   );
-
-
   let Topview = () => {
     displayImage = "https://picsum.photos/id/228/300/300";
     // perform dom operation
@@ -30,17 +28,11 @@ function EventDemo() {
 
     setDisplayImage(displayImage);
   };
-
-
   return (
     <div>
       <h1>View</h1>
-
-     
       <img src={displayImage} />
-     
 
-      
       <br />
       <input type="button" value="Top view" onClick={Topview} />
       <input type="button" value="Front view" onClick={Frontview} />
