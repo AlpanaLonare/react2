@@ -6,8 +6,6 @@ function App() {
     </div>
   );
 }
-// MAP OPERATOR
-// <h1>Delhi</h1>
 function EventDemo() {
   let [todo, setTodo] = useState("");
   let [list, setList] = useState([]);
@@ -26,7 +24,7 @@ function EventDemo() {
     console.log(list);
     setList([...list]);
   };
-  // UI
+
   return (
     <div>
       <h1>List Demo </h1>
