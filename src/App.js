@@ -7,30 +7,44 @@ function App() {
   );
 }
 function EventDemo() {
-  let [counter, setCounter] = useState(100);
+  
+  
   let [displayImage, setDisplayImage] = useState(
-    "https://picsum.photos/id/230/300/300"
+    "https://picsum.photos/id/237/300/300"
   );
-  let likeMe = () => {
-    counter = counter + 1;
-    setCounter(counter);
-  };
-  let changeImage = () => {
-    displayImage = "https://picsum.photos/id/238/300/300";
+
+
+  let Topview = () => {
+    displayImage = "https://picsum.photos/id/228/300/300";
+    // perform dom operation
     setDisplayImage(displayImage);
   };
-  let resetImage = () => {
-    displayImage = "https://picsum.photos/id/241/300/300";
+
+  let Frontview = () => {
+    displayImage = "https://picsum.photos/id/231/300/300";
+    // perform dom operation
     setDisplayImage(displayImage);
   };
+  let Sideview = () => {
+    displayImage = "https://picsum.photos/id/239/300/300";
+
+    setDisplayImage(displayImage);
+  };
+
+
   return (
-    <div >
-      <h1>Like</h1>
+    <div>
+      <h1>View</h1>
+
+     
       <img src={displayImage} />
-      <input className="d-flex justify-content-between"type="button" value="Like Me" onClick={likeMe} />
+     
+
+      
       <br />
-      <input type="button" value="Chnage Image" onClick={changeImage} />
-      <input type="button" value="Reset Image" onClick={resetImage} />
+      <input type="button" value="Top view" onClick={Topview} />
+      <input type="button" value="Front view" onClick={Frontview} />
+      <input type="button" value="Side view" onClick={Sideview} />
     </div>
   );
 }
