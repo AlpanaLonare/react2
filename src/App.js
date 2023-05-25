@@ -1,22 +1,24 @@
 import { useState } from "react";
-import'./App.css';
-import BMIForm from'./bmicomponent/BMIForm';
-import BMISCore from "./bmicomponent/BMIScore";
+import "./App.css";
+import BMIForm from "./bmicomponents/BMIForm";
+import BMISCore from "./bmicomponents/BMIScore";
+
 
 function App() {
+  const [bmi, setBmi] = useState(18);
+  const [bmiType, setBmiType] = useState("Overweight");
+  const onFormSubmit=(w,h)=>
+  {
+    console.log(w+":::"+h);
+  }
 
-  const [bmi,setBmi]=useState(18);
-  const [miType,setMitype]=useState("Overweight");
-   return (
-   <div className="App">
-    <h2>Welcome to REACT</h2>
-     <h4>BMI: {bmi}</h4>
-     <button onClick={()=>setBmi(bmi+5)}>Click</button>
-  <BMIForm/>
-   <BMISCore Mybmi={bmi} miType={MyType}/>
-
-   </div>
-     );
+  return (
+    <div className="App">
+      <h2>Welcome to REACT</h2>
+      <BMIForm getData={onFormSubmit}/>
+      <BMISCore />
+    </div>
+  );
 }
 
 export default App;
