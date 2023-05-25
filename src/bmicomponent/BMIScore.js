@@ -4,7 +4,7 @@ import React from 'react'
 export default function BMISCore(props) {
  return (
    <div>BMISCore : {props.Mybmi} <br/>
-   BMIWeight : {props.Mybmi}
+   BMIWeight : {props.Mytype}
    </div>
  )
 }
