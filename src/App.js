@@ -1,41 +1,47 @@
 import { useState } from "react";
-import "./App.css";
-import BMIForm from "./bmicomponents/BMIForm";
-import BMIScore from "./bmicomponents/BMIScore";
-
 function App() {
-  const [bmi, setBmi] = useState(18);
-  const [bmiType, setBmiType] = useState("Overweight");
-  const onFormSubmit=(w,h)=>
-  {
-    console.log(w+":"+h);
-    let b= calculateBMI(w,h);
-    setBmi(b);
-    let bType=weightType(b);
-    setBmiType(bType);
-  }
-  const calculateBMI =(w,h)=>(w/(h*h)).toFixed(2);
-  const weightType=bmi=>
-  {
-    if(bmi<18.5)
-    {
-      return"Underweight";
-    }
-    else if(18.5<bmi<24.9)
-    {
-      return "Normal";
-    }
-    else
-    return "Overweight";
-  }
-
   return (
-    <div className="App">
-      <h2>Welcome to React</h2>
-    <BMIForm getData={onFormSubmit}/>
-    <BMIScore bmi={bmi} BmiType={bmiType}/>
+    <div>
+      <EventDemo />
     </div>
   );
 }
+function EventDemo() {
+ 
+  let [counter, setCounter] = useState(100);
+  let likeMe = () => {
+    alert();
+  };
+  let likeMe1 = (e) => {
+    console.log(e);
+    console.log(e.target);
+  };
+    counter = counter + 1;
+  let likeMe2 = (p1) => {
+    console.log(p1);
+  };
+  let likeMe3 = (e, p1) => {
+    console.log(p1);
+    console.log(e);
+    setCounter(counter);
+  };
+  return (
+    <div>
+      <img src="https://picsum.photos/id/237/300" alt="" />
+      <h1>Like {counter}</h1>
+      <input type="button" value="Like Me" onClick={likeMe} />
+      <input type="button" value="Like Me 1" onClick={likeMe1} />
 
+      {/** For User Defined param */}
+      <input type="button" value="Like Me 2" onClick={() => likeMe2("data")} />
+
+      {/** Default Param + User Defined Param */}
+      <input
+        type="button"
+        value="Like Me 3"
+        onClick={(e) => likeMe3(e, "data")}
+      />
+    </div>
+  );
+}
 export default App;
