@@ -1,46 +1,40 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deposit, withdraw } from ".redux/accountSlice";
 function App() {
   return (
     <div>
-      <EventDemo />
+      <DepositAccount />
+      <hr />
+      <WithdrawlAccount />
     </div>
   );
 }
-function EventDemo() {
- 
-  let [counter, setCounter] = useState(100);
-  let likeMe = () => {
-    alert();
-  };
-  let likeMe1 = (e) => {
-    console.log(e);
-    console.log(e.target);
-  };
-    counter = counter + 1;
-  let likeMe2 = (p1) => {
-    console.log(p1);
-  };
-  let likeMe3 = (e, p1) => {
-    console.log(p1);
-    console.log(e);
-    setCounter(counter);
+function DepositAccount() {
+  let { account } = useSelector((state) => state);
+  let dispatch = useDispatch();
+  let depositHandler = () => {
+    dispatch(deposit());
   };
   return (
     <div>
-      <img src="https://picsum.photos/id/237/300" alt="" />
-      <h1>Like {counter}</h1>
-      <input type="button" value="Like Me" onClick={likeMe} />
-      <input type="button" value="Like Me 1" onClick={likeMe1} />
-
-      {/** For User Defined param */}
-      <input type="button" value="Like Me 2" onClick={() => likeMe2("data")} />
-
-      {/** Default Param + User Defined Param */}
-      <input
-        type="button"
-        value="Like Me 3"
-        onClick={(e) => likeMe3(e, "data")}
-      />
+      <h1>Account: CDAC</h1>
+      <h1>Balance: {account.balance}</h1>
+      <input type="button" value="Deposit" onClick={depositHandler} />
+    </div>
+  );
+}
+function WithdrawlAccount() {
+  let { account } = useSelector((state) => state);
+  let dispatch = useDispatch();
+  let withdrawHandler = () => {
+    dispatch(withdraw());
+  };
+  return (
+    <div>
+      <h1>Account: CDAC</h1>
+      <h1>Balance: {account.balance}</h1>
+      <input type="button" value="Withdraw" onClick={withdrawHandler} />
     </div>
   );
 }
